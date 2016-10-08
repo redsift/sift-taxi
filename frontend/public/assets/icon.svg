@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15691 -1143 97 97">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: #fcbb54;
+      }
+
+      .cls-2, .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-3, .cls-4 {
+        stroke: #fff;
+        stroke-width: 2px;
+      }
+
+      .cls-5 {
+        stroke: none;
+      }
+
+      .cls-6 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="group-349" transform="translate(-17776.002 -2480)">
+    <g id="group-321" transform="translate(2085.001 1337)">
+      <g id="home-buyer-sift-icon" transform="translate(0 0)">
+        <path id="path" class="cls-1" d="M97,76.307,76.485,97l-55.82-.252L0,76.3.152,20.442,20.425.1,76.485,0,97,20.442Z"/>
+      </g>
+    </g>
+    <g id="group-350" transform="translate(2105.657 1360.866)">
+      <path id="rectangle-214" class="cls-2" d="M0,0H56.583V19.2H0V0Z" transform="translate(0.001 21.94)"/>
+      <g id="rectangle-213" class="cls-3" transform="translate(8.2 25.34) rotate(45)">
+        <rect class="cls-5" width="8.744" height="8.744"/>
+        <rect class="cls-6" x="1" y="1" width="6.744" height="6.744"/>
+      </g>
+      <g id="rectangle-213-2" data-name="rectangle-213" class="cls-3" transform="translate(47.922 25.34) rotate(45)">
+        <rect class="cls-5" width="8.744" height="8.744"/>
+        <rect class="cls-6" x="1" y="1" width="6.744" height="6.744"/>
+      </g>
+      <g id="group-351" transform="translate(8.983 3.079)">
+        <rect id="rectangle-214-2" data-name="rectangle-214" class="cls-2" width="38.878" height="20.273"/>
+        <rect id="rectangle-214-3" data-name="rectangle-214" class="cls-1" width="29.64" height="14.756" transform="translate(4.619 3.721)"/>
+      </g>
+      <g id="rectangle-213-3" data-name="rectangle-213" class="cls-4" transform="translate(6.948 39.725) rotate(90)">
+        <rect class="cls-5" width="8.981" height="6.948"/>
+        <rect class="cls-6" x="1" y="1" width="6.981" height="4.948"/>
+      </g>
+      <g id="rectangle-213-4" data-name="rectangle-213" class="cls-4" transform="translate(49.398 40.801)">
+        <rect class="cls-5" width="7.185" height="8.981"/>
+        <rect class="cls-6" x="1" y="1" width="5.185" height="6.981"/>
+      </g>
+      <rect id="rectangle-214-4" data-name="rectangle-214" class="cls-2" width="13.73" height="3.208" transform="translate(21.557 0)"/>
+    </g>
+  </g>
+</svg>

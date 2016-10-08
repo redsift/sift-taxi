@@ -1,0 +1,7 @@
+slack_creds.json
+email_creds.json
+node_modules
+dump.svg
+sdk_tmp/
+.*-grip.json
+.*run.json

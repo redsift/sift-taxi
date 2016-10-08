@@ -1,0 +1,16 @@
+{
+  "name": "sift-taxi",
+  "description": "A Taxi receipts aggregation sift",
+  "author": "Randal Pinto",
+  "version": "1.0.0",
+  "dependencies": {
+    "moment": "2.14.1",
+    "money": "0.2.0",
+    "request-promise": "3.0.0"
+  },
+  "scripts": {
+    "test": "node ./tests/receipts.js && node ./tests/tests.js",
+    "lint": "eslint ./**/*.js"
+  },
+  "devDependencies": {}
+}

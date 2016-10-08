@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic Page Needs –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Taxi Sift</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Mobile Specific Metas –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=320, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="dist/css/style.min.css">
+</head>
+<!-- Almost everything is the body tag, exist for the completeness of the example -->
+<!-- Exception: some javascript dependencies scroll down for more info -->
+
+<body id="home">
+  <rs-hero header="Taxi Sift" bg-class="-bg-taxi -effect-darken" scroll-target="#scroll-target" sticky-header=".content">
+    <p class="fade-in delay">Your total taxi expenditure this month is</p>
+    <code id="monthtotal">0</code>
+  </rs-hero>
+  <a id="help" class="help" href="#">
+    <img src="assets/help.svg" style="position: fixed; top: 30px; right: 20px; z-index: 800;" />
+  </a>
+
+  <div class="content" id="scroll-target">
+    <div class="container">
+      <div id="currency-conversion" class="bottom-separator" style="display:none;">
+        <div id="currency-header">
+          <div class="sectionheader first">
+            <div class="sectiontitle">Currency</div>
+            <div class="sectionsubtitle">conversion</div>
+          </div>
+          <div id="currency-setup" class="centered">
+            <button id="enable-conversion" class="enable-conversion rs-btn--green">Enable</button>
+          </div>
+          <div id="currency-selection" class="centered" style="display:none;">
+            <select id="currency-select" class="select-currency">
+            </select>
+          </div>
+        </div>
+      </div>
+      <div id="journeys-period">
+        <div id="journeys-header" class="sectionheader first">
+          <div class="sectiontitle">Journeys</div>
+          <div id="subtitle-journeys" class="sectionsubtitle"></div>
+        </div>
+        <div id="chart" class="centered"></div>
+      </div>
+      <div id="stats-period" style="display: none;">
+        <div class="sectionheader">
+          <div class="sectiontitle">Stats</div>
+          <div id="subtitle-stats" class="sectionsubtitle">last 12 months</div>
+        </div>
+        <div id="stats" class="stats__container">
+          <div class="stat">
+            <code id="trips-period" class="statnum">&hellip;</code>
+            <div class="statdesc">
+              <br>Trips</div>
+          </div>
+          <div class="stat">
+            <code id="averageprice-period" class="statnum">&hellip;</code>
+            <div class="statdesc">Average
+              <br>price</div>
+          </div>
+          <div class="stat last">
+            <code id="totalspend-period" class="statnum">&hellip;</code>
+            <div class="statdesc">Total
+              <br>spend</div>
+          </div>
+        </div>
+      </div>
+      <div id="companies-period" style="display: none;">
+        <div class="sectionheader">
+          <div class="sectiontitle">Companies</div>
+          <div id="subtitle-companies" class="sectionsubtitle">last 12 months</div>
+        </div>
+        <div id="pie" class="centered"></div>
+      </div>
+      <div id="totals" style="display: none;">
+        <div class="sectionheader">
+          <div class="sectiontitle">Totals</div>
+          <div id="subtitle-totals" class="sectionsubtitle"></div>
+        </div>
+        <div id="stats" class="stats__container">
+          <div title="Year-to-date" class="stat">
+            <code id="ytd" class="statnum">&hellip;</code>
+            <div class="statdesc">
+              <br>YTD</div>
+          </div>
+          <div title="Month-to-date" class="stat">
+            <code id="mtd" class="statnum">&hellip;</code>
+            <div class="statdesc">
+              <br>MTD</div>
+          </div>
+          <div class="stat last">
+            <code id="today" class="statnum">&hellip;</code>
+            <div class="statdesc">
+              <br>Today</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- App -->
+  <script src="dist/js/view.umd-es2015.min.js"></script>
+</body>
+
+</html>

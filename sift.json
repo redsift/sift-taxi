@@ -1,0 +1,230 @@
+{
+  "name": "sift-taxi",
+  "display-name": "Taxi Receipts",
+  "description": "This Sift aggregates all your taxi email receipts into an insightful dashboard. It currently supports Uber, Hailo and Addison Lee receipts. If you enable currency conversion it will convert those expenses abroad into your local currency or any currency of your choice.",
+  "author": "Randal Pinto",
+  "version": "1.0.0",
+  "icon": "assets/icon.svg",
+  "subtitle": "Your personalized taxi expenses tracker",
+  "marketing": {
+    "screenshots": [
+      "assets/screenshot-0.png",
+      "assets/screenshot-1.png",
+      "assets/screenshot-2.png"
+    ],
+    "links": [
+      {
+        "label": "Github",
+        "type": "github",
+        "url": "https://github.com/redsift/sift-taxi"
+      }
+    ]
+  },
+  "interfaces": {
+    "email": {
+      "thread": {
+        "controller": "dist/js/controller.umd-es2015.min.js"
+      },
+      "client": {
+        "controller": "dist/js/email-client-controller.umd-es2015.min.js"
+      }
+    },
+    "summary": {
+      "controller": "dist/js/controller.umd-es2015.min.js"
+    }
+  },
+  "dag": {
+    "inputs": {
+      "emails": {
+        "taxi": {
+          "filter": {
+            "conditions": [
+              {
+                "conditions": [
+                  {
+                    "from": {
+                      "regexp": {
+                        "flags": "i",
+                        "pattern": "billing@hailocab\\.com"
+                      }
+                    }
+                  },
+                  {
+                    "subject": {
+                      "regexp": {
+                        "flags": "i",
+                        "pattern": "(?:^|\\s+)HAILO(?:.*|\\s+)RECEIPT"
+                      }
+                    }
+                  }
+                ],
+                "operator": "AND"
+              },
+              {
+                "conditions": [
+                  {
+                    "from": {
+                      "regexp": {
+                        "flags": "i",
+                        "pattern": ".*@uber\\.com"
+                      }
+                    }
+                  }
+                ],
+                "operator": "AND"
+              },
+              {
+                "conditions": [
+                  {
+                    "subject": {
+                      "regexp": {
+                        "flags": "i",
+                        "pattern": ".*Addison Lee Booking"
+                      }
+                    }
+                  }
+                ],
+                "operator": "AND"
+              }
+            ],
+            "operator": "OR"
+          },
+          "inMailbox": "all",
+          "wants": [
+            "archive",
+            "textBody",
+            "strippedHtmlBody"
+          ]
+        }
+      },
+      "webhooks": {
+        "settings-wh": {
+          "inbound": {
+            "uri": "{key}/{value}"
+          }
+        }
+      }
+    },
+    "nodes": [
+      {
+        "#": "Messages mapper",
+        "implementation": {
+          "javascript": "server/map.js"
+        },
+        "input": {
+          "bucket": "taxi"
+        },
+        "outputs": {
+          "receipts": {}
+        }
+      },
+      {
+        "#": "Currency converter",
+        "implementation": {
+          "javascript": "server/currency.js"
+        },
+        "input": {
+          "bucket": "receipts",
+          "select": "$day/*",
+          "with": {
+            "bucket": "openexchangerates",
+            "select": "$day"
+          },
+          "lookup": [
+            {
+              "bucket": "settings",
+              "key": "currency",
+              "createDependency": true
+            },
+            {
+              "bucket": "settings",
+              "key": "oxrappid",
+              "createDependency": true
+            }
+          ]
+        },
+        "outputs": {
+          "convertedreceipts": {},
+          "openexchangerates": {},
+          "tidList": {},
+          "day": {}
+        }
+      },
+      {
+        "#": "Month reducer",
+        "implementation": {
+          "javascript": "server/month.js"
+        },
+        "input": {
+          "bucket": "convertedreceipts",
+          "select": "/*/*"
+        },
+        "outputs": {
+          "month": {}
+        }
+      },
+      {
+        "#": "Year reducer",
+        "implementation": {
+          "javascript": "server/year.js"
+        },
+        "input": {
+          "bucket": "convertedreceipts",
+          "select": "*//*"
+        },
+        "outputs": {
+          "year": {}
+        }
+      },
+      {
+        "#": "Settings",
+        "implementation": {
+          "javascript": "server/settings.js"
+        },
+        "input": {
+          "bucket": "settings-wh"
+        },
+        "outputs": {
+          "settings": {},
+          "config": {}
+        }
+      }
+    ],
+    "outputs": {
+      "exports": {
+        "day": {
+          "key$schema": "string"
+        },
+        "month": {
+          "key$schema": "string"
+        },
+        "year": {
+          "key$schema": "string"
+        },
+        "tidList": {
+          "import": "_email.tid"
+        },
+        "config": {
+          "key$schema": "string"
+        }
+      }
+    },
+    "stores": {
+      "convertedreceipts": {
+        "key$schema": "string/string/string"
+      },
+      "messages": {
+        "key$schema": "string"
+      },
+      "openexchangerates": {
+        "key$schema": "string"
+      },
+      "receipts": {
+        "key$schema": "string/string"
+      },
+      "settings": {
+        "key$schema": "string"
+      }
+    }
+  }
+}
