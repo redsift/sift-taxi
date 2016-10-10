@@ -1,41 +1,14 @@
 # Taxi Sift
+### Your personalized taxi expenses tracker
 
-## Development setup
+[<img src="http://static.redsift.io/assets/icons/deploy.svg">](https://dashboard.redsift.cloud/catalogue)
 
-Taxi Sift is using a build pipeline for bundling and transpiling Javascript code, as well as for concatenating CSS files into a distribution package. The pipeline is configured in `gulpfile.js` and is using [Redsift Bundler](https://github.com/Redsift/redsift-bundler) under the hood.
+This Sift aggregates all your taxi email receipts into an insightful dashboard. It currently supports Uber, Hailo and Addison Lee receipts. If you enable currency conversion it will convert those expenses abroad into your local currency or any currency of your choice.
 
-To use the build pipeline with the Redsift SDK start the gulp watch process in your project's root folder. It takes care of creating a distribution package on each code change:
+## Social coding
+We like pull requests. If you want to fork it, add your own functionality, run it on your own data  and share it with the world, that's also cool. 
+Find out how to become a Sift developer at: https://redsift.com and check out our docs at https://docs.redsift.com. 
+Red Sift is and will always be free for developers to create and run Sifts.
 
-```bash
-gulp
-```
-
-Each code change will be reflected in the SDK from then on.
-
-## Visualization of the DAG
-
-![Alt text](http://g.gravizo.com/g?
-digraph G {
-     convertedreceipts[shape=record,label="convertedreceipts\\nk$s:string/string/string"];
-     messages[shape=record,label="messages\\nk$s:string"];
-     msgdates[shape=record,label="msgdates\\nk$s:string"];
-     openexchangerates[shape=record,label="openexchangerates\\nk$s:string"];
-     receipts[shape=record,label="receipts\\nk$s:string/string"];
-     taxi -> "Messages mapper 1";
-     "Messages mapper 1" -> messages;
-     messages -> "Messages mapper";
-     msgdates -> "Messages mapper"];
-     "Messages mapper" -> msgdates;
-     "Messages mapper" -> receipts;
-     receipts -> "Currency converter";
-     openexchangerates -> "Currency converter"];
-     "Currency converter" -> convertedreceipts;
-     "Currency converter" -> msgId;
-     "Currency converter" -> openexchangerates;
-     convertedreceipts -> "Month reducer";
-     "Month reducer" -> default;
-     convertedreceipts -> "Year reducer";
-     "Year reducer" -> default;
-     msgId[style="dashed"];
-     default[style="dashed"];
-})
+## License
+MIT
