@@ -1,7 +1,7 @@
 # Taxi Sift
 ### Your personalized taxi expenses tracker
 
-[<img src="http://static.redsift.io/assets/icons/deploy.svg">](https://dashboard.redsift.cloud/catalogue)
+[<img src="http://static.redsift.io/assets/icons/run.svg">](https://dashboard.redsift.cloud/catalogue)
 
 This Sift aggregates all your taxi email receipts into an insightful dashboard. It currently supports Uber, Hailo and Addison Lee receipts. If you enable currency conversion it will convert those expenses abroad into your local currency or any currency of your choice.
 
