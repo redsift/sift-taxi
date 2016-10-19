@@ -1612,12 +1612,6 @@ function _getAll(db, params, loadValue) {
   });
 }
 
-/**
- * Redsift SDK. Sift Storage module.
- * Based on APIs from https://github.com/CrowdProcess/riak-pb
- *
- * Copyright (c) 2016 Redsift Limited. All rights reserved.
- */
 let _siftGuid = new WeakMap();
 let _dbs = new WeakMap();
 
@@ -6055,12 +6049,6 @@ var moment = createCommonjsModule(function (module, exports) {
 });
 
 var moment$1 = (moment && typeof moment === 'object' && 'default' in moment ? moment['default'] : moment);
-
-/**
- * sift-taxi: frontend controller entry point.
- *
- * Copyright (c) 2016 Redsift Limited
- */
 
 class TaxiController extends SiftController {
   constructor() {

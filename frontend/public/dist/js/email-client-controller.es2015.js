@@ -1086,22 +1086,10 @@ function indexedDB() {
 var logger = loglevel$1.getLogger('RSStorage:operations');
 logger.setLevel('warn');
 
-/**
- * Redsift SDK. Sift Storage module.
- * Based on APIs from https://github.com/CrowdProcess/riak-pb
- *
- * Copyright (c) 2016 Redsift Limited. All rights reserved.
- */
-
 function registerEmailClientController(emailClientController) {
   console.log('[Redsift::registerEmailClientController]: registered');
 }
 
-/**
- * sift-taxi: email client controller entry point.
- *
- * Copyright (c) 2016 Redsift Limited
- */
 class TaxiEmailClientController extends EmailClientController {
   constructor() {
     super();
