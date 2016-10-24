@@ -1113,13 +1113,6 @@ function indexedDB() {
 var logger = loglevel$1.getLogger('RSStorage:operations');
 logger.setLevel('warn');
 
-/**
- * Redsift SDK. Sift Storage module.
- * Based on APIs from https://github.com/CrowdProcess/riak-pb
- *
- * Copyright (c) 2016 Redsift Limited. All rights reserved.
- */
-
 class SiftView {
   constructor() {
     this._resizeHandler = null;
@@ -16033,16 +16026,6 @@ function units(iso) {
     return { d3: lookup$2.en_US, iso639: 'en-US'};
 }
 
-/**
- * Extension of work by Justin Palmer (https://github.com/Caged/d3-tip)
- *
- * Copyright (c) 2016 Redsift Limited. All rights reserved.
-*/
-// d3.tip
-// Copyright (c) 2013 Justin Palmer
-//
-// Tooltips for d3.js SVG visualizations
-
 const DEFAULT_WIDTH = 800; // Assume the chart is of this width if generating css
 
 function tip(id) {
@@ -18684,16 +18667,6 @@ function select$1(selector) {
       : new Selection$2([[selector]], root$2);
 }
 
-/**
- * Extension of work by Justin Palmer (https://github.com/Caged/d3-tip)
- *
- * Copyright (c) 2016 Redsift Limited. All rights reserved.
-*/
-// d3.tip
-// Copyright (c) 2013 Justin Palmer
-//
-// Tooltips for d3.js SVG visualizations
-
 function tip$1(id) {
   var d3_tip_functor = (v) => (typeof v === "function" ? v : () => v);
   var d3_tip_direction = () => 'n';
@@ -20796,12 +20769,6 @@ var oxrSymbols = {
 	ZMW: ZMW$1,
 	ZWL: ZWL$1
 };
-
-/**
- * sift-taxi: frontend view entry point.
- *
- * Copyright (c) 2016 Redsift Limited
- */
 
 class TaxiSift extends SiftView {
   constructor() {
