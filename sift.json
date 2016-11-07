@@ -1,11 +1,11 @@
 {
   "name": "sift-taxi",
   "display-name": "Taxi Receipts",
-  "description": "This Sift aggregates all your taxi email receipts into an insightful dashboard. It currently supports Uber, Hailo and Addison Lee receipts. If you enable currency conversion it will convert those expenses abroad into your local currency or any currency of your choice.",
+  "description": "This Sift keeps track of your taxi expenses by aggregating email receipts from Uber, Hailo and Addison Lee. Convert foreign currency receipts right into the Sift.",
   "author": "Randal Pinto",
   "version": "1.0.0",
   "icon": "assets/icon.svg",
-  "subtitle": "Your personalized taxi expenses tracker",
+  "subtitle": "Taxi expenses tracking",
   "marketing": {
     "screenshots": [
       "assets/screenshot-0.png",
