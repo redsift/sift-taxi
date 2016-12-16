@@ -24,7 +24,7 @@
     "@redsift/d3-rs-pies": "^0.0.2",
     "@redsift/d3-rs-theme": "^0.4.2",
     "@redsift/sift-sdk-web": "^0.6.1",
-    "@redsift/redsift-bundler": "^0.5.5",
+    "@redsift/redsift-bundler": "^0.7.3",
     "d3-selection": "^1.0.2",
     "d3-transition": "^1.0.2",
     "moment": "^2.15.1",
